@@ -11,13 +11,17 @@ fn main() {
             .split(",")
             .map(|f| f.parse::<i32>().unwrap())
             .collect();
-        
-        if (split[0]..=split[1]).into_iter().any(|item| {
+        if (split[0]..=split[1]).into_iter().all(|item| {
             (split[2]..=split[3])
                 .into_iter()
                 .collect::<Vec<i32>>()
                 .contains(&item)
-        }){
+        }) || (split[2]..=split[3]).into_iter().all(|item| {
+            (split[0]..=split[1])
+                .into_iter()
+                .collect::<Vec<i32>>()
+                .contains(&item)
+        }) {
             result += 1;
         }
     }
