@@ -56,14 +56,14 @@ fn get_result(part: i32, input: &str) -> usize  {
     parsed_data.drain(0..number_of_elems);
     
     let mut counter = number_of_elems - 1;
-    for char in parsed_data {
+    for item in parsed_data {
         counter += 1;
-        let hash_set: HashSet<char> = initial_values.clone().into_iter().collect();
+        let hash_set: HashSet<item> = initial_values.clone().into_iter().collect();
         if hash_set.len() == number_of_elems {
             break;
         } else {
             initial_values.dequeue();
-            initial_values.enqueue(char);
+            initial_values.enqueue(item);
         }
     }
     counter
