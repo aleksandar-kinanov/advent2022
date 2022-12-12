@@ -106,5 +106,9 @@ fn main() {
             invisible_trees += 1;
         }
     }
+    let thing = vec![1, 2, 3, 4, 5];
+    for item in thing.iter().rev() {
+        println!("{}", item);
+    }
     println!("{}", all_tress - invisible_trees);
 }
